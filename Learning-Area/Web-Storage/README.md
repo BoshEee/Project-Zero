@@ -34,6 +34,36 @@ The main difference between sessionStorage and localStorage is that sessionStora
 
 ## Why would you use cookies vs local/session storage?
 
+To answer that you should ask yourself another question,
+in your app, **who needs this data — the client or the server?**
+
+**Many** secure websites employ cookies to validate their users’ identities after they’ve logged in to prevent them from having to re-enter their credentials on every page. Another use for cookies is to customize or adjust user experience based on limited browsing history on the site.
+
+**There are two types of cookies:**
+
+**Session cookies** do not containan expiration date. Instead, they are stored only as long as the browser or tab is open. As soon as the browser is closed, they are permanently lost. This type of cookie might be used to store a banking user’s credentials while they are navigating within their bank’s website since their information would be forgotten as soon as the tab is closed.
+
+**Persistent cookies** do have an expiration date. These cookies are stored on the user’s disk until the expiration date and then permanently deleted. They can be used for other activities such as recording a user’s habits while on a particular website in order to customize their experience every time they visit.
+
+**Pros**
+
+- Legacy support (it's been around forever)
+- Persistent data
+- Expiration dates
+
+**Cons**
+
+- Each domain stores all its cookies in a single string, which can make parsing data difficult
+- Data is unencrypted, which becomes an issue because though small in size, cookies are sent with every HTTP request Limited size (4KB)
+- SQL injection can be performed from a cookie
+
+### Conclusion
+
+While these storage options have their positives and negatives, they both have applications in modern web development. Cookies are smaller and send server information back with every HTTP request, while LocalStorage is larger and can hold information on the client side.
+When you make your next application, think about these various uses and decide which type of storage is right for you.
+
+Repo Link => https://github.com/BoshEee/Project-Zero/tree/main/Learning-Area/Web-Storage
+
 # Usefull Links
 
 - [How to use localStorage](https://blog.logrocket.com/localstorage-javascript-complete-guide/#webstorageapi)

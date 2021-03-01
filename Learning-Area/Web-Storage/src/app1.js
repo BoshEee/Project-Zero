@@ -1,6 +1,7 @@
 const addButton = document.querySelector(".add");
 const task = document.querySelector(".text");
 const list = document.querySelector(".list");
+const delButton = document.querySelector(".del");
 
 window.onload = function () {
   if (sessionStorage.getItem("task")) {
@@ -20,6 +21,10 @@ addButton.addEventListener("click", () => {
   list.appendChild(singleTask);
 
   addSessionStorage(singleTask.textContent);
+});
+
+delButton.addEventListener("click", () => {
+  sessionStorage.removeItem("task");
 });
 
 function addSessionStorage(theTask) {

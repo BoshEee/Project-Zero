@@ -1,9 +1,10 @@
+const delButton = document.querySelector(".add");
 const addButton = document.querySelector(".add");
 const task = document.querySelector(".text");
 const list = document.querySelector(".list");
 
 window.onload = function () {
-  const preTasks = window.localStorage.getItem("task");
+  const preTasks = document.cookie;
   if (preTasks) {
     const singleTask = document.createElement("li");
     singleTask.textContent = preTasks;
@@ -18,9 +19,10 @@ addButton.addEventListener("click", () => {
   const singleTask = document.createElement("li");
   singleTask.textContent = task.value;
   list.appendChild(singleTask);
-  addLocalStorage(singleTask.textContent);
+  document.cookie = singleTask;
+  addCookie(singleTask.textContent);
 });
 
-function addLocalStorage(theTask) {
-  window.localStorage.setItem("task", theTask);
+function addCookie(theTask) {
+  document.cookie = theTask;
 }
